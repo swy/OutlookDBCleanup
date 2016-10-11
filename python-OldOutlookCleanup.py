@@ -4,10 +4,13 @@ import shutil
 from glob import iglob
 import os
 import os.path
+#import os.path.expanduser
 
+home = os.path.expanduser("~")
+print home
 
 for dirpath, dirnames, filenames in os.walk ("/Users/syuroff/Documents/Microsoft User Data/Office 2011 Identities"):
 	for dirname in [f for f in dirnames if "[Backed up " in f]:
 		print os.path.join(dirpath, dirname)
 		shutil.rmtree(os.path.join(dirpath, dirname))
-		#shutil.rmtree(dirpath, dirname)
+		
