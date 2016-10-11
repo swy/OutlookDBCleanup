@@ -7,8 +7,8 @@ echo "Starting directory is $startDir"
 
 oldDatabases+=$(/usr/bin/find "${startDir}" -name '*\[Backed up*' -type d)
 for matchingDatabase in "${oldDatabases[@]}"; do
-	echo Found these Backup folders: "${matchingDatabase[@]}"
-	echo "This will remove ${matchingDatabase}"
-#	rm -Rfv "${startDir}/${matchingDatabase}"
+
+	echo "This will remove the following paths: ${matchingDatabase[@]}"
+	rm -Rvi  "${matchingDatabase[@]}"
 done
 exit 0
