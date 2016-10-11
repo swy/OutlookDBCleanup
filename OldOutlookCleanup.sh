@@ -5,10 +5,10 @@ startDir="${homeDir}/Documents/Microsoft User Data/Office 2011 Identities"
 
 echo "Starting directory is $startDir"
 
-oldDatabases+=$(/usr/bin/find "${startDir}" -name "Database" -type f | cut -c 2- | rev | cut -d '/' -f 2 | rev)
+oldDatabases+=$(/usr/bin/find "${startDir}" -name '*\[Backed up*' -type d)
 for matchingDatabase in "${oldDatabases[@]}"; do
-	echo matchingDatabase is "${matchingDatabase}"
-	echo "This will remove ${startDir}/${matchingDatabase}"
+	echo Found these Backup folders: "${matchingDatabase[@]}"
+	echo "This will remove ${matchingDatabase}"
 #	rm -Rfv "${startDir}/${matchingDatabase}"
 done
 exit 0
