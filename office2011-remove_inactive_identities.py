@@ -12,14 +12,13 @@ except TypeError:
 documents_path = "/Users/" + current_user + "/Documents/Microsoft User Data/Office 2011 Identities"
 
 current_database = max(glob.iglob(documents_path + '/*Identity*/Database'), key=os.path.getmtime)
-print "current_identity (based on most recently modified path) is " + current_database
+
+print "Current database (based on most recently modified path) is " + current_database
 
 for d in glob.iglob(documents_path + '/*Identity*/Database'):
-	pd = d.rstrip('Database')
-	print "line 19- pd= " + pd
-	if pd == current_database:
-    		print "I'm not going to touch " + current_database
-    		continue
-	else:
-		#shutil.rmtree(pd)
-		print "I would remove " + pd
+    if d == current_database:
+        continue
+    else:
+        pd = d.rstrip('Database')
+      #  shutil.rmtree(pd)
+      	print "script will remove " + pd
