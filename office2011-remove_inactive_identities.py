@@ -20,5 +20,5 @@ for d in glob.iglob(documents_path + '/*Identity*/Database'):
         continue
     else:
         pd = d.rstrip('Database')
-      #  shutil.rmtree(pd)
+        shutil.rmtree(pd)
       	print "script will remove " + pd
