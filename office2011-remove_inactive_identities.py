@@ -20,5 +20,6 @@ for d in glob.iglob(documents_path + '/*Identity*/Database'):
         continue
     else:
         pd = d.rstrip('Database')
+        print "script is removing " + pd
         shutil.rmtree(pd)
-      	print "script will remove " + pd
+      	
